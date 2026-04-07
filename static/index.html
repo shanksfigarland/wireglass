@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wireglass</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/glass-workstation.css?v=20260407e" />
+    <script defer src="/static/main.js?v=20260407e"></script>
+  </head>
+  <body>
+    <div class="container-fluid px-3 px-xl-4 py-3 app-shell">
+      <div class="row g-3 g-xxl-4 app-frame">
+        <div class="col-12 col-xl-3 col-xxl-2">
+          <aside class="side-rail glass-panel">
+            <div class="brand-block">
+              <div class="brand-mark">WG</div>
+              <div>
+                <p class="kicker kicker--compact">Wireglass</p>
+                <h1>Local PCAP triage</h1>
+              </div>
+            </div>
+
+            <section class="side-card side-card--nav">
+              <p class="side-card__label">Sections</p>
+              <nav class="side-nav" aria-label="Sections">
+                <a class="side-nav__link" href="#intakePanel">Ingest</a>
+                <a class="side-nav__link" href="#caseSummary">Summary</a>
+                <a class="side-nav__link" href="#findingsPanel">Findings</a>
+                <a class="side-nav__link" href="#hostPanel">Hosts</a>
+                <a class="side-nav__link" href="#timelinePanel">Timeline</a>
+                <a class="side-nav__link" href="#protocolPanel">Protocols</a>
+              </nav>
+            </section>
+          </aside>
+        </div>
+
+        <div class="col-12 col-xl-9 col-xxl-10">
+          <main class="workspace">
+        <div class="app-topbar">
+          <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">
+            <span class="theme-toggle__icon" aria-hidden="true"></span>
+            <span class="theme-toggle__label">Dark</span>
+          </button>
+        </div>
+        <header class="stage-header glass-panel" id="intakePanel">
+          <div class="stage-header__copy">
+            <p class="kicker">Offline Investigation Workstation</p>
+            <h2>Packet triage without packet-by-packet manual inspection.</h2>
+            <p>
+              Feed in a <code>.pcap</code> or <code>.pcapng</code> capture and get a case-ready
+              workspace with findings, hosts, artifacts, important frames, and direct pivots for
+              the indicators worth checking next.
+            </p>
+          </div>
+
+          <div class="stage-header__signals">
+            <span>Capture + artifact SHA-256</span>
+            <span>Important frames</span>
+            <span>Potentially impacted hosts</span>
+            <span>AD defensive detection</span>
+          </div>
+        </header>
+
+        <section class="row g-3 intake-grid">
+          <div class="col-12 col-lg-8">
+            <section class="dropzone-panel glass-panel h-100" id="dropZone">
+            <div class="dropzone-panel__mark">WG</div>
+            <p class="dropzone-panel__title">Drop a capture to start</p>
+            <p class="dropzone-panel__copy">or pick a local file to run the analysis engine</p>
+            <input id="fileInput" type="file" accept=".pcap,.pcapng,.cap" hidden />
+            <div class="action-row">
+              <button class="button button--primary" id="pickFileButton">Choose Capture</button>
+              <button class="button button--ghost" id="sampleButton">Run Sample</button>
+            </div>
+            <p class="selected-file" id="selectedFileName">No file selected</p>
+            </section>
+          </div>
+
+          <div class="col-12 col-lg-4">
+            <section class="control-panel glass-panel h-100">
+            <div>
+              <p class="section-label">Status</p>
+              <p class="status-copy" id="statusLine">Ready for a local upload.</p>
+            </div>
+
+            <div class="control-panel__actions">
+              <button class="button button--primary" id="analyzeButton" disabled>Analyze Capture</button>
+              <button class="button button--ghost" id="downloadJsonButton" disabled>Download JSON</button>
+              <button class="button button--ghost" id="downloadHtmlButton" disabled>Download HTML</button>
+            </div>
+
+            </section>
+          </div>
+        </section>
+
+        <section class="results hidden" id="resultsSection">
+          <header class="results-banner glass-panel" id="caseSummary">
+            <div>
+              <p class="kicker">Case Summary</p>
+              <h2 id="reportHeadline">Waiting for analysis</h2>
+              <p class="results-banner__copy">
+                Review posture first, then move through pivots, findings, hosts, and frames.
+              </p>
+            </div>
+            <div class="pill-row" id="severityPills"></div>
+          </header>
+
+          <div class="row g-3 summary-grid" id="summaryGrid"></div>
+
+          <div class="row g-3 results-columns">
+            <div class="col-12 col-xl-7">
+              <div class="results-column results-column--primary">
+              <article class="panel" id="analystPanel">
+                <div class="panel__header">
+                  <h3>Analyst Summary</h3>
+                  <span class="panel__meta">Local heuristic analyst</span>
+                </div>
+                <div id="analystSummary"></div>
+              </article>
+
+              <article class="panel" id="pivotPanel">
+                <div class="panel__header">
+                  <h3>Investigation Shortcuts</h3>
+                  <span class="panel__meta">Best next pivots after triage</span>
+                </div>
+                <div id="pivots"></div>
+              </article>
+
+              <article class="panel" id="findingsPanel">
+                <div class="panel__header">
+                  <h3>Findings</h3>
+                  <span class="panel__meta" id="findingsMeta">0 findings</span>
+                </div>
+                <div id="detections"></div>
+              </article>
+
+              <article class="panel" id="timelinePanel">
+                <div class="panel__header">
+                  <h3>Timeline</h3>
+                  <span class="panel__meta">Key moments across the capture</span>
+                </div>
+                <div id="timeline"></div>
+              </article>
+
+              <article class="panel">
+                <div class="panel__header">
+                  <h3>Important Frames</h3>
+                  <span class="panel__meta">Packets worth opening first</span>
+                </div>
+                <div id="importantFrames"></div>
+              </article>
+
+              <article class="panel" id="hostPanel">
+                <div class="panel__header">
+                  <h3>Hosts</h3>
+                  <span class="panel__meta">Top talkers and roles</span>
+                </div>
+                <div id="hosts"></div>
+              </article>
+
+              <article class="panel">
+                <div class="panel__header">
+                  <h3>Flows</h3>
+                  <span class="panel__meta">Heaviest conversations</span>
+                </div>
+                <div id="flows"></div>
+              </article>
+            </div>
+            </div>
+
+            <div class="col-12 col-xl-5">
+              <div class="results-column results-column--secondary">
+              <article class="panel">
+                <div class="panel__header">
+                  <h3>Potentially Impacted Hosts</h3>
+                  <span class="panel__meta">Scored from detections and evidence</span>
+                </div>
+                <div id="suspiciousHosts"></div>
+              </article>
+
+              <article class="panel">
+                <div class="panel__header">
+                  <h3>Recovered Artifacts</h3>
+                  <span class="panel__meta">Hashes and delivery paths</span>
+                </div>
+                <div id="artifacts"></div>
+              </article>
+
+              <article class="panel">
+                <div class="panel__header">
+                  <h3>Local Threat Intel</h3>
+                  <span class="panel__meta">Recovered malware and IOC context</span>
+                </div>
+                <div id="threatIntel"></div>
+              </article>
+
+              <article class="panel">
+                <div class="panel__header">
+                  <h3>Directory Services</h3>
+                  <span class="panel__meta">AD-focused traffic</span>
+                </div>
+                <div id="directoryServices"></div>
+              </article>
+
+              <article class="panel" id="protocolPanel">
+                <div class="panel__header">
+                  <h3>Protocols</h3>
+                  <span class="panel__meta">Traffic mix</span>
+                </div>
+                <div id="protocols"></div>
+              </article>
+
+              <article class="panel">
+                <div class="panel__header">
+                  <h3>Top Ports</h3>
+                  <span class="panel__meta">Destination focus</span>
+                </div>
+                <div id="ports"></div>
+              </article>
+
+              <article class="panel">
+                <div class="panel__header">
+                  <h3>DNS</h3>
+                  <span class="panel__meta">Sample queries</span>
+                </div>
+                <div id="dns"></div>
+              </article>
+
+              <article class="panel">
+                <div class="panel__header">
+                  <h3>HTTP</h3>
+                  <span class="panel__meta">Cleartext requests</span>
+                </div>
+                <div id="http"></div>
+              </article>
+
+              <article class="panel">
+                <div class="panel__header">
+                  <h3>TLS</h3>
+                  <span class="panel__meta">ClientHello highlights</span>
+                </div>
+                <div id="tls"></div>
+              </article>
+
+              <article class="panel">
+                <div class="panel__header">
+                  <h3>Kerberos</h3>
+                  <span class="panel__meta">Ticket activity</span>
+                </div>
+                <div id="kerberos"></div>
+              </article>
+
+              <article class="panel">
+                <div class="panel__header">
+                  <h3>LDAP</h3>
+                  <span class="panel__meta">Directory queries</span>
+                </div>
+                <div id="ldap"></div>
+              </article>
+
+              <article class="panel">
+                <div class="panel__header">
+                  <h3>RPC / SMB</h3>
+                  <span class="panel__meta">Replication and file service hints</span>
+                </div>
+                <div id="rpc"></div>
+              </article>
+
+              <article class="panel">
+                <div class="panel__header">
+                  <h3>Warnings</h3>
+                  <span class="panel__meta">Parser notes</span>
+                </div>
+                <div id="warnings"></div>
+              </article>
+            </div>
+            </div>
+          </div>
+        </section>
+          </main>
+        </div>
+      </div>
+    </div>
+    <button class="back-to-top" id="backToTopButton" type="button" aria-label="Back to top">
+      Top
+    </button>
+  </body>
+</html>

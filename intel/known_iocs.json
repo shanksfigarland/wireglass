@@ -1,0 +1,32 @@
+{
+  "hashes": {
+    "deca50b4c00bce4b68513d3cbf7e340af76b6b96cc03760914dc1a9c81a70e3f": {
+      "name": "Wireglass Demo Loader",
+      "family": "demo-loader",
+      "severity": "high",
+      "notes": "Sample hash entry for local validation. Replace this with your own known-malware or lab IOC hashes."
+    }
+  },
+  "domains": {
+    "update-cache.example": {
+      "name": "Staging update host pattern",
+      "family": "suspicious-staging",
+      "severity": "medium",
+      "notes": "Sample local intelligence entry for an update-themed delivery hostname."
+    },
+    "updates-example.com": {
+      "name": "High-entropy staging domain pattern",
+      "family": "suspicious-dns",
+      "severity": "medium",
+      "notes": "Sample local intelligence entry for unusual update subdomains."
+    }
+  },
+  "filenames": {
+    "stage-loader.exe": {
+      "name": "Loader-style filename",
+      "family": "suspicious-artifact",
+      "severity": "medium",
+      "notes": "Template entry. Replace or extend with your own known-malware or lab IOC set."
+    }
+  }
+}
