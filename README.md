@@ -1,4 +1,4 @@
-<div align="center">
+﻿<div align="center">
 
 # Wireglass
 
@@ -98,19 +98,19 @@ python analyzer.py .\samples\synthetic_suspicious.pcapng --external-intel --viru
 
 ```text
 pcap-triage/
-├─ analyzer.py
-├─ external_intel.py
-├─ generate_sample_pcap.py
-├─ triage_core.py
-├─ webapp.py
-├─ intel/
-│  └─ known_iocs.json
-├─ samples/
-├─ reports/
-└─ static/
-   ├─ index.html
-   ├─ main.js
-   └─ glass-workstation.css
+|-- analyzer.py
+|-- external_intel.py
+|-- generate_sample_pcap.py
+|-- triage_core.py
+|-- webapp.py
+|-- intel/
+|   `-- known_iocs.json
+|-- samples/
+|-- reports/
+`-- static/
+    |-- index.html
+    |-- main.js
+    `-- glass-workstation.css
 ```
 
 ## Privacy Notes
@@ -137,5 +137,5 @@ pcap-triage/
 
 ## Disclaimer
 
-Wireglass is intended for defensive analysis, lab work, and incident triage.  
+Wireglass is intended for defensive analysis, lab work, and incident triage.
 Use it only on data and environments you are authorized to inspect.
