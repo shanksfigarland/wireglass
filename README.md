@@ -1,5 +1,10 @@
 ﻿<div align="center">
 
+<img src="assets/wireglass-banner.svg" alt="Wireglass banner" width="100%" />
+
+<br />
+<br />
+
 # Wireglass
 
 ### Local-first PCAP triage for fast incident review
