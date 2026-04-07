@@ -9,10 +9,10 @@
 
 ### Local-first PCAP triage for fast incident review
 
-[![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![UI](https://img.shields.io/badge/UI-HTML%20%7C%20CSS%20%7C%20JS-111827?style=for-the-badge)](#)
-[![Focus](https://img.shields.io/badge/Focus-Offline%20Triage-0F766E?style=for-the-badge)](#)
-[![Defensive](https://img.shields.io/badge/Use-Defensive%20Analysis-B91C1C?style=for-the-badge)](#)
+[![Python](https://img.shields.io/badge/Python-3.x-8B5E34?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![UI](https://img.shields.io/badge/UI-HTML%20%7C%20CSS%20%7C%20JS-2A211B?style=for-the-badge)](#)
+[![Focus](https://img.shields.io/badge/Focus-Offline%20Triage-C16A1B?style=for-the-badge)](#)
+[![Defensive](https://img.shields.io/badge/Use-Defensive%20Analysis-7A2E2E?style=for-the-badge)](#)
 
 Wireglass is a local PCAP analysis workstation that turns raw captures into a readable case summary with findings, artifacts, important frames, suspicious hosts, and investigation pivots.
 

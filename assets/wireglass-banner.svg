@@ -1,99 +1,103 @@
 <svg width="1280" height="420" viewBox="0 0 1280 420" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="420" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#071019"/>
-      <stop offset="0.55" stop-color="#0A1730"/>
-      <stop offset="1" stop-color="#0A0F18"/>
+      <stop stop-color="#171411"/>
+      <stop offset="0.48" stop-color="#221B16"/>
+      <stop offset="1" stop-color="#120F0C"/>
     </linearGradient>
-    <radialGradient id="glowLeft" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(182 62) rotate(44.212) scale(332.099 289.482)">
-      <stop stop-color="#38BDF8" stop-opacity="0.34"/>
-      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="glowRight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1128 370) rotate(-155.129) scale(323.816 236.092)">
-      <stop stop-color="#2DD4BF" stop-opacity="0.24"/>
-      <stop offset="1" stop-color="#2DD4BF" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="cardStroke" x1="116" y1="56" x2="1180" y2="364" gradientUnits="userSpaceOnUse">
-      <stop stop-color="white" stop-opacity="0.25"/>
-      <stop offset="1" stop-color="white" stop-opacity="0.06"/>
+    <linearGradient id="terminal" x1="150" y1="78" x2="1134" y2="356" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2A211B" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#1C1713" stop-opacity="0.92"/>
     </linearGradient>
-    <linearGradient id="signal" x1="820" y1="137" x2="1064" y2="137" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#60A5FA"/>
-      <stop offset="1" stop-color="#22D3EE"/>
+    <linearGradient id="terminalStroke" x1="148" y1="78" x2="1148" y2="356" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4B76D" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#F7E0B0" stop-opacity="0.08"/>
     </linearGradient>
-    <filter id="blur" x="0" y="0" width="1280" height="420" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feGaussianBlur stdDeviation="40"/>
+    <linearGradient id="accent" x1="171" y1="132" x2="491" y2="132" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <filter id="glow" x="0" y="0" width="1280" height="420" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="34"/>
     </filter>
   </defs>
 
   <rect width="1280" height="420" rx="28" fill="url(#bg)"/>
 
   <g opacity="0.12">
-    <path d="M0 84H1280" stroke="white"/>
-    <path d="M0 168H1280" stroke="white"/>
-    <path d="M0 252H1280" stroke="white"/>
-    <path d="M0 336H1280" stroke="white"/>
-    <path d="M182 0V420" stroke="white"/>
-    <path d="M364 0V420" stroke="white" stroke-opacity="0.82"/>
-    <path d="M546 0V420" stroke="white" stroke-opacity="0.82"/>
-    <path d="M728 0V420" stroke="white"/>
-    <path d="M910 0V420" stroke="white" stroke-opacity="0.82"/>
-    <path d="M1092 0V420" stroke="white" stroke-opacity="0.82"/>
+    <path d="M0 60H1280" stroke="#FFF2D8"/>
+    <path d="M0 120H1280" stroke="#FFF2D8" stroke-opacity="0.7"/>
+    <path d="M0 180H1280" stroke="#FFF2D8" stroke-opacity="0.5"/>
+    <path d="M0 240H1280" stroke="#FFF2D8" stroke-opacity="0.5"/>
+    <path d="M0 300H1280" stroke="#FFF2D8" stroke-opacity="0.7"/>
+    <path d="M0 360H1280" stroke="#FFF2D8"/>
+    <path d="M128 0V420" stroke="#FFF2D8" stroke-opacity="0.7"/>
+    <path d="M256 0V420" stroke="#FFF2D8" stroke-opacity="0.55"/>
+    <path d="M384 0V420" stroke="#FFF2D8" stroke-opacity="0.55"/>
+    <path d="M512 0V420" stroke="#FFF2D8" stroke-opacity="0.55"/>
+    <path d="M640 0V420" stroke="#FFF2D8" stroke-opacity="0.75"/>
+    <path d="M768 0V420" stroke="#FFF2D8" stroke-opacity="0.55"/>
+    <path d="M896 0V420" stroke="#FFF2D8" stroke-opacity="0.55"/>
+    <path d="M1024 0V420" stroke="#FFF2D8" stroke-opacity="0.55"/>
+    <path d="M1152 0V420" stroke="#FFF2D8" stroke-opacity="0.7"/>
   </g>
 
-  <g filter="url(#blur)">
-    <circle cx="186" cy="74" r="150" fill="url(#glowLeft)"/>
-    <circle cx="1110" cy="352" r="150" fill="url(#glowRight)"/>
+  <g filter="url(#glow)" opacity="0.28">
+    <circle cx="202" cy="90" r="110" fill="#F59E0B"/>
+    <circle cx="1080" cy="330" r="118" fill="#FB7185"/>
   </g>
 
-  <rect x="96" y="52" width="1088" height="316" rx="26" fill="white" fill-opacity="0.045"/>
-  <rect x="96.75" y="52.75" width="1086.5" height="314.5" rx="25.25" stroke="url(#cardStroke)" stroke-width="1.5"/>
+  <rect x="146" y="78" width="988" height="278" rx="26" fill="url(#terminal)"/>
+  <rect x="146.75" y="78.75" width="986.5" height="276.5" rx="25.25" stroke="url(#terminalStroke)" stroke-width="1.5"/>
 
-  <rect x="128" y="82" width="138" height="32" rx="16" fill="#0F2143"/>
-  <circle cx="146" cy="98" r="5.5" fill="#67E8F9"/>
-  <text x="162" y="103" fill="#DDEBFF" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="0.16em">OFFLINE FIRST</text>
+  <circle cx="182" cy="108" r="6" fill="#FB7185"/>
+  <circle cx="204" cy="108" r="6" fill="#FBBF24"/>
+  <circle cx="226" cy="108" r="6" fill="#34D399"/>
 
-  <text x="128" y="168" fill="#F6FBFF" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="0.05em">WIREGLASS</text>
-  <text x="132" y="200" fill="#89A3C9" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="0.22em">LOCAL PCAP TRIAGE WORKSTATION</text>
+  <rect x="170" y="126" width="322" height="3" rx="1.5" fill="url(#accent)"/>
 
-  <text x="128" y="252" fill="#DCEAFF" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="30" font-weight="600">
-    Turn packet captures into a readable case summary,
+  <text x="170" y="172" fill="#FFF7E8" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="0.05em">WIREGLASS</text>
+  <text x="173" y="202" fill="#C8B7A1" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="0.22em">PACKET TRIAGE + INVESTIGATION WORKSTATION</text>
+
+  <text x="170" y="250" fill="#F8E7D2" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="28" font-weight="600">
+    Case-first capture analysis with artifact recovery,
   </text>
-  <text x="128" y="290" fill="#DCEAFF" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="30" font-weight="600">
-    recovered artifacts, and investigation pivots.
+  <text x="170" y="286" fill="#F8E7D2" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="28" font-weight="600">
+    protocol summaries, and fast intel pivots.
   </text>
 
   <g>
-    <rect x="128" y="316" width="118" height="36" rx="18" fill="#112346"/>
-    <text x="157" y="339" fill="#E6F3FF" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="600">PCAPNG</text>
+    <rect x="170" y="310" width="124" height="30" rx="15" fill="#30251E"/>
+    <text x="198" y="329" fill="#FFEFD6" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="600">PCAP / PCAPNG</text>
 
-    <rect x="258" y="316" width="114" height="36" rx="18" fill="#112346"/>
-    <text x="291" y="339" fill="#E6F3FF" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="600">JSON</text>
+    <rect x="304" y="310" width="88" height="30" rx="15" fill="#30251E"/>
+    <text x="333" y="329" fill="#FFEFD6" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="600">Offline</text>
 
-    <rect x="384" y="316" width="114" height="36" rx="18" fill="#112346"/>
-    <text x="418" y="339" fill="#E6F3FF" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="600">HTML</text>
+    <rect x="402" y="310" width="98" height="30" rx="15" fill="#30251E"/>
+    <text x="430" y="329" fill="#FFEFD6" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="600">JSON + HTML</text>
 
-    <rect x="510" y="316" width="126" height="36" rx="18" fill="#112346"/>
-    <text x="542" y="339" fill="#E6F3FF" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="600">Web UI</text>
+    <rect x="510" y="310" width="92" height="30" rx="15" fill="#30251E"/>
+    <text x="539" y="329" fill="#FFEFD6" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="600">Web UI</text>
   </g>
 
   <g>
-    <rect x="786" y="86" width="332" height="250" rx="24" fill="#0C1630" fill-opacity="0.74"/>
-    <rect x="786.75" y="86.75" width="330.5" height="248.5" rx="23.25" stroke="white" stroke-opacity="0.08" stroke-width="1.5"/>
+    <path d="M770 136H882C908 136 930 156 930 182C930 208 952 228 978 228H1110" stroke="#F7D08B" stroke-width="2.5" stroke-dasharray="7 8"/>
+    <path d="M770 174H842C870 174 892 196 892 224C892 250 914 272 940 272H1110" stroke="#FDBA74" stroke-width="2.5" stroke-dasharray="7 8"/>
+    <path d="M770 212H828C856 212 878 234 878 262C878 288 900 310 926 310H1110" stroke="#FB7185" stroke-width="2.5" stroke-dasharray="7 8"/>
 
-    <text x="820" y="122" fill="#7FC8FF" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="0.18em">CASE SURFACES</text>
-    <rect x="820" y="136" width="244" height="3" rx="1.5" fill="url(#signal)"/>
+    <circle cx="770" cy="136" r="6" fill="#F7D08B"/>
+    <circle cx="770" cy="174" r="6" fill="#FDBA74"/>
+    <circle cx="770" cy="212" r="6" fill="#FB7185"/>
+  </g>
 
-    <rect x="820" y="164" width="230" height="34" rx="17" fill="#102044"/>
-    <text x="842" y="186" fill="#EBF5FF" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="600">Protocol metadata and summaries</text>
+  <g>
+    <rect x="952" y="120" width="158" height="38" rx="19" fill="#2A221D"/>
+    <text x="974" y="144" fill="#FFF0D5" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="600">Protocol summary</text>
 
-    <rect x="820" y="208" width="208" height="34" rx="17" fill="#102044"/>
-    <text x="842" y="230" fill="#EBF5FF" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="600">Suspicious scans and beaconing</text>
+    <rect x="972" y="210" width="138" height="38" rx="19" fill="#2A221D"/>
+    <text x="994" y="234" fill="#FFF0D5" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="600">Artifact SHA-256</text>
 
-    <rect x="820" y="252" width="212" height="34" rx="17" fill="#102044"/>
-    <text x="842" y="274" fill="#EBF5FF" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="600">Artifact recovery and SHA-256</text>
-
-    <rect x="820" y="296" width="182" height="34" rx="17" fill="#102044"/>
-    <text x="842" y="318" fill="#EBF5FF" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="600">Intel pivots and triage flow</text>
+    <rect x="958" y="300" width="152" height="38" rx="19" fill="#2A221D"/>
+    <text x="980" y="324" fill="#FFF0D5" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="600">Threat intel pivots</text>
   </g>
 </svg>
